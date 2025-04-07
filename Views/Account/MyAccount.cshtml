@@ -1,0 +1,12 @@
+﻿
+@using Project2.Models.UserData
+@model UserData
+
+<h1>Moje konto</h1>
+<p>Imie: @Model.FirstName</p>
+<p>Nazwisko: @Model.LastName</p>
+<p>Login: @Model.Login</p>
+<p>Stanowisko: @Model.Role.ToString()</p>
+
+<a href="@Url.Action("Manage","Account")">Modyfikuj dane</a>
+<a href="@Url.Action("ChangePassword","Account")">Zmień hasło</a>

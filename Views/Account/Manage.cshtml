@@ -1,0 +1,19 @@
+﻿
+@using Project2.Models.UserData
+@model UserData
+
+<h1>Zmiana danych</h1>
+@using (Html.BeginForm("Manage", "Account", FormMethod.Post))
+{
+    @Html.ValidationSummary();
+    <span>Imie: </span>
+    @Html.TextBoxFor(x => x.FirstName)
+    <span>Nazwisko: </span>
+
+    @Html.TextBoxFor(x => x.LastName)
+    <span>Login: </span>
+
+    @Html.TextBoxFor(x => x.Login)
+
+    <button type="submit">Modyfikuj</button>
+}

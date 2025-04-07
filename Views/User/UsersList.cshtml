@@ -1,0 +1,44 @@
+﻿@using Project2.Models.ManageUser
+@model IEnumerable<UserList>
+
+
+<h2>Lista użytkowników</h2>
+
+<table class="table">
+    <tr>
+        <th>Nazwa użytkownika</th>
+        @if (User.IsInRole("Administrator"))
+        {
+            <th>Login</th>
+        }
+        @if (User.IsInRole("Administrator") || User.IsInRole("HRmanager"))
+        {
+            <th>Role</th>
+        }
+        <th>Akcje</th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.FirstName @user.LastName</td>
+            @if (User.IsInRole("Administrator"))
+            {
+                <td>@user.Login</td>
+            }
+            @if (User.IsInRole("Administrator") || User.IsInRole("HRmanager"))
+            {
+                <td>@user.Role.ToString()</td>
+            }
+            <td>
+            <td>
+
+            @if (User.IsInRole("Administrator"))
+            {
+                    <a href="@Url.Action("Delete","User", new {Id=user.id})">Usuń</a>
+            }
+
+            </td>
+        </tr>
+    }
+</table>
+
